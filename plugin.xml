@@ -19,7 +19,7 @@
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="Ebook" >
-                <param name="android-package" value="ua.pp.garik.cordova.ebook"/>
+                <param name="android-package" value="ua.pp.garik.cordova.ebook.Ebook"/>
             </feature>
         </config-file>
 
