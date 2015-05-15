@@ -4,7 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     id="cordova-plugin-ebook"
     version="1.0.0-dev">
-    <name>Device</name>
+    <name>Ebook</name>
     <description>Cordova Ebook Plugin</description>
     <license>Apache 2.0</license>
     <keywords>cordova,ebook</keywords>
