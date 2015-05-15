@@ -21,9 +21,9 @@
 #include <sys/sysctl.h>
 
 #import <Cordova/CDV.h>
-#import "CDVDevice.h"
+#import "CDVEbook.h"
 
-@implementation UIDevice (ModelVersion)
+@implementation UIEbook (ModelVersion)
 
 - (NSString*)modelVersion
 {
@@ -40,34 +40,12 @@
 
 @end
 
-@interface CDVDevice () {}
+@interface CDVEbook () {}
 @end
 
-@implementation CDVDevice
+@implementation CDVEbook
 
-- (NSString*)uniqueAppInstanceIdentifier:(UIDevice*)device
-{
-    NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
-    static NSString* UUID_KEY = @"CDVUUID";
-
-    NSString* app_uuid = [userDefaults stringForKey:UUID_KEY];
-
-    if (app_uuid == nil) {
-        CFUUIDRef uuidRef = CFUUIDCreate(kCFAllocatorDefault);
-        CFStringRef uuidString = CFUUIDCreateString(kCFAllocatorDefault, uuidRef);
-
-        app_uuid = [NSString stringWithString:(__bridge NSString*)uuidString];
-        [userDefaults setObject:app_uuid forKey:UUID_KEY];
-        [userDefaults synchronize];
-
-        CFRelease(uuidString);
-        CFRelease(uuidRef);
-    }
-
-    return app_uuid;
-}
-
-- (void)getDeviceInfo:(CDVInvokedUrlCommand*)command
+- (void)getData:(CDVInvokedUrlCommand*)command
 {
     NSDictionary* deviceProperties = [self deviceProperties];
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:deviceProperties];
@@ -75,16 +53,20 @@
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
+- (void)onHighlightClick:(CDVInvokedUrlCommand*)command
+{
+    NSDictionary* deviceProperties = [self deviceProperties];
+    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:deviceProperties];
+
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
+
 - (NSDictionary*)deviceProperties
 {
-    UIDevice* device = [UIDevice currentDevice];
     NSMutableDictionary* devProps = [NSMutableDictionary dictionaryWithCapacity:4];
-
     [devProps setObject:@"Apple" forKey:@"manufacturer"];
-    [devProps setObject:[device modelVersion] forKey:@"model"];
-    [devProps setObject:@"iOS" forKey:@"platform"];
-    [devProps setObject:[device systemVersion] forKey:@"version"];
-    [devProps setObject:[self uniqueAppInstanceIdentifier:device] forKey:@"uuid"];
+    [devProps setObject:@"GARE" forKey:@"platform"];
     [devProps setObject:[[self class] cordovaVersion] forKey:@"cordova"];
 
     NSDictionary* devReturn = [NSDictionary dictionaryWithDictionary:devProps];

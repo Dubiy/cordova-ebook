@@ -29,11 +29,11 @@
     <platform name="ios">
         <config-file target="config.xml" parent="/*">
             <feature name="Ebook">
-                <param name="ios-package" value="CDVDevice"/>
+                <param name="ios-package" value="CDVEbook"/>
             </feature>
         </config-file>
 
-        <header-file src="src/ios/CDVDevice.h" />
-        <source-file src="src/ios/CDVDevice.m" />
+        <header-file src="src/ios/CDVEbook.h" />
+        <source-file src="src/ios/CDVEbook.m" />
     </platform>
 </plugin>
