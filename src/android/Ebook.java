@@ -67,9 +67,6 @@ public class Ebook extends CordovaPlugin {
             return true;
         }
 
-//onNoteClick
-//onInteractionTriggerClick
-
         if (action.equals("getData")) {
             JSONObject r = new JSONObject();
             r.put("uuid", "uuuuuuuid");

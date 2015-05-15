@@ -46,7 +46,7 @@ function Ebook() {
     var me = this;
 
     channel.onCordovaReady.subscribe(function() {
-        me.getInfo(function(info) {
+        me.getData(function(info) {
             var buildLabel = cordova.version;
             channel.onCordovaInfoReady.fire();
         },function(e) {
