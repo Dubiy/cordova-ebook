@@ -25,45 +25,45 @@ var argscheck = require('cordova/argscheck'),
     exec = require('cordova/exec'),
     cordova = require('cordova');
 
-// channel.createSticky('onCordovaInfoReady');
-// // Tell cordova channel to wait on the CordovaInfoReady event
-// channel.waitForInitialization('onCordovaInfoReady');
+channel.createSticky('onCordovaInfoReady');
+// Tell cordova channel to wait on the CordovaInfoReady event
+channel.waitForInitialization('onCordovaInfoReady');
 
-// /**
-//  * This represents the mobile device, and provides properties for inspecting the model, version, UUID of the
-//  * phone, etc.
-//  * @constructor
-//  */
-// function Ebook() {
-//     this.available = false;
-//     this.platform = null;
-//     this.version = null;
-//     this.uuid = null;
-//     this.cordova = null;
-//     this.model = null;
-//     this.manufacturer = null;
+/**
+ * This represents the mobile device, and provides properties for inspecting the model, version, UUID of the
+ * phone, etc.
+ * @constructor
+ */
+function Ebook() {
+    this.available = false;
+    this.platform = null;
+    this.version = null;
+    this.uuid = null;
+    this.cordova = null;
+    this.model = null;
+    this.manufacturer = null;
 
-//     var me = this;
+    var me = this;
 
-//     channel.onCordovaReady.subscribe(function() {
-//         me.getInfo(function(info) {
-//             var buildLabel = cordova.version;
-//             channel.onCordovaInfoReady.fire();
-//         },function(e) {
-//             utils.alert("[ERROR] Error initializing Cordova: " + e);
-//         });
-//     });
-// }
+    channel.onCordovaReady.subscribe(function() {
+        me.getInfo(function(info) {
+            var buildLabel = cordova.version;
+            channel.onCordovaInfoReady.fire();
+        },function(e) {
+            utils.alert("[ERROR] Error initializing Cordova: " + e);
+        });
+    });
+}
 
-// /**
-//  * Get device info
-//  *
-//  * @param {Function} successCallback The function to call when the heading data is available
-//  * @param {Function} errorCallback The function to call when there is an error getting the heading data. (OPTIONAL)
-//  */
-// Ebook.prototype.getData = function(successCallback, errorCallback) {
-//     argscheck.checkArgs('fF', 'Ebook.getData', arguments);
-//     exec(successCallback, errorCallback, "Ebook", "getData", []);
-// };
+/**
+ * Get device info
+ *
+ * @param {Function} successCallback The function to call when the heading data is available
+ * @param {Function} errorCallback The function to call when there is an error getting the heading data. (OPTIONAL)
+ */
+Ebook.prototype.getData = function(successCallback, errorCallback) {
+    argscheck.checkArgs('fF', 'Ebook.getData', arguments);
+    exec(successCallback, errorCallback, "Ebook", "getData", []);
+};
 
-// module.exports = new Ebook();
+module.exports = new Ebook();

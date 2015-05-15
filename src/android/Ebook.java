@@ -58,17 +58,28 @@ public class Ebook extends CordovaPlugin {
      * @return                  True if the action was valid, false if not.
      */
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
+        if (action.equals("onHighlightClick")) {
+            JSONObject r = new JSONObject();
+            r.put("uuid", "uuuuuuuid");
+            r.put("version", "1234");
+            r.put("platform", "ANDROIde");
+            callbackContext.success(r);
+            return true;
+        }
+
+//onNoteClick
+//onInteractionTriggerClick
+
         if (action.equals("getData")) {
             JSONObject r = new JSONObject();
             r.put("uuid", "uuuuuuuid");
             r.put("version", "1234");
             r.put("platform", "ANDROIde");
             callbackContext.success(r);
+            return true;
         }
-        else {
-            return false;
-        }
-        return true;
+        return false;
+        
     }
 
 
