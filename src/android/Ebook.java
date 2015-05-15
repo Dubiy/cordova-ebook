@@ -58,7 +58,7 @@ public class Ebook extends CordovaPlugin {
      * @return                  True if the action was valid, false if not.
      */
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
-        if (action.equals("getDeviceInfo")) {
+        if (action.equals("getData")) {
             JSONObject r = new JSONObject();
             r.put("uuid", "uuuuuuuid");
             r.put("version", "1234");
