@@ -1,24 +1,21 @@
 {
   "name": "cordova-plugin-ebook",
-  "version": "1.0.1-dev",
+  "version": "1.0.0-dev",
   "description": "Cordova Ebook Plugin",
   "cordova": {
     "id": "cordova-plugin-ebook",
     "platforms": [
       "android",
-      "ios",
-      "browser"
+      "ios"
     ]
   },
   "repository": {
     "type": "git",
-    "url": "https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git"
+    "url": "https://github.com/Dubiy/cordova-ebook.git"
   },
   "keywords": [
     "cordova",
-    "ebook",
-    "cordova-android",
-    "cordova-ios"
+    "ebook"
   ],
   "author": "eKreative @ Gary",
   "license": "Apache 2.0"

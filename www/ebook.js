@@ -35,15 +35,22 @@ channel.waitForInitialization('onCordovaInfoReady');
  * @constructor
  */
 function Ebook() {
+    this.available = false;
+    this.platform = null;
+    this.version = null;
+    this.uuid = null;
+    this.cordova = null;
+    this.model = null;
+    this.manufacturer = null;
+
     var me = this;
 
     channel.onCordovaReady.subscribe(function() {
         me.getInfo(function(info) {
             var buildLabel = cordova.version;
-            console.log('cordova ready atata');
             channel.onCordovaInfoReady.fire();
         },function(e) {
-            console.log('ERROR INITIALIZING CORDOVA: ' + e );
+            utils.alert("[ERROR] Error initializing Cordova: " + e);
         });
     });
 }
@@ -55,8 +62,8 @@ function Ebook() {
  * @param {Function} errorCallback The function to call when there is an error getting the heading data. (OPTIONAL)
  */
 Ebook.prototype.getData = function(successCallback, errorCallback) {
-//    argscheck.checkArgs('fF', 'Device.getInfo', arguments);
-    exec(successCallback, errorCallback, "Ebook", "getData", ['arg1', 'arg2', 'atata']);
+    argscheck.checkArgs('fF', 'Ebook.getData', arguments);
+    exec(successCallback, errorCallback, "Ebook", "getData", []);
 };
 
 module.exports = new Ebook();

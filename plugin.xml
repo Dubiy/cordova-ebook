@@ -2,23 +2,22 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:rim="http://www.blackberry.com/ns/widgets"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    id="cordova-plugin-ebook"
+    id="cordova-plugin-device"
     version="1.0.0-dev">
-    <name>Ebook</name>
+    <name>Device</name>
     <description>Cordova Ebook Plugin</description>
     <license>Apache 2.0</license>
     <keywords>cordova,ebook</keywords>
-    <repo>https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git</repo>
-    <issue>https://issues.apache.org/jira/browse/CB/component/12320648</issue>
+    <repo>https://github.com/Dubiy/cordova-ebook.git</repo>
 
-    <js-module src="www/Ebook.js" name="Ebook">
-        <clobbers target="Ebook" />
+    <js-module src="www/ebook.js" name="ebook">
+        <clobbers target="ebook" />
     </js-module>
 
     <!-- android -->
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
-            <feature name="Ebook" >
+            <feature name="Device" >
                 <param name="android-package" value="ua.pp.garik.cordova.ebook.Ebook"/>
             </feature>
         </config-file>
@@ -29,26 +28,12 @@
     <!-- ios -->
     <platform name="ios">
         <config-file target="config.xml" parent="/*">
-            <feature name="Ebook">
-                <param name="ios-package" value="CDVEbook"/>
+            <feature name="Device">
+                <param name="ios-package" value="CDVDevice"/>
             </feature>
         </config-file>
 
-        <header-file src="src/ios/CDVEbook.h" />
-        <source-file src="src/ios/CDVEbook.m" />
+        <header-file src="src/ios/CDVDevice.h" />
+        <source-file src="src/ios/CDVDevice.m" />
     </platform>
-
-    <!-- browser -->
-    <platform name="browser">
-        <config-file target="config.xml" parent="/*">
-            <feature name="Ebook">
-                <param name="browser-package" value="Ebook" />
-            </feature>
-        </config-file>
-
-        <js-module src="src/browser/EbookProxy.js" name="EbookProxy">
-            <runs />
-        </js-module>
-    </platform>
-
 </plugin>

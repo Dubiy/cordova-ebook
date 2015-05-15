@@ -32,14 +32,6 @@ import android.provider.Settings;
 
 public class Ebook extends CordovaPlugin {
     public static final String TAG = "Ebook";
-
-    public static String platform;                            // Device OS
-    public static String uuid;                                // Device UUID
-
-    private static final String ANDROID_PLATFORM = "Android";
-    private static final String AMAZON_PLATFORM = "amazon-fireos";
-    private static final String AMAZON_DEVICE = "Amazon";
-
     /**
      * Constructor.
      */
@@ -55,7 +47,6 @@ public class Ebook extends CordovaPlugin {
      */
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
         super.initialize(cordova, webView);
-//        Device.uuid = getUuid();
     }
 
     /**
@@ -67,13 +58,11 @@ public class Ebook extends CordovaPlugin {
      * @return                  True if the action was valid, false if not.
      */
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
-        if (action.equals("getData")) {
+        if (action.equals("getDeviceInfo")) {
             JSONObject r = new JSONObject();
-            r.put("uuid", "uuuuuid");
+            r.put("uuid", "uuuuuuuid");
             r.put("version", "1234");
-            r.put("platform", "andrioido");
-            r.put("model", "90-60-90");
-            r.put("manufacturer", "Gare");
+            r.put("platform", "ANDROIde");
             callbackContext.success(r);
         }
         else {
@@ -81,5 +70,6 @@ public class Ebook extends CordovaPlugin {
         }
         return true;
     }
+
 
 }
