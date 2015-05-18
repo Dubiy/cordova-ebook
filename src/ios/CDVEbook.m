@@ -62,6 +62,24 @@
 }
 
 
+- (void)onNoteClick:(CDVInvokedUrlCommand*)command
+{
+
+    [self.webView stringByEvaluatingJavaScriptFromString:@"iosCallFunction();"];
+
+    NSDictionary* deviceProperties = [self deviceProperties];
+    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:deviceProperties];
+
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
+
+
+
+
+
+
+
 - (NSDictionary*)deviceProperties
 {
     NSMutableDictionary* devProps = [NSMutableDictionary dictionaryWithCapacity:4];
