@@ -72,6 +72,13 @@ public class Ebook extends CordovaPlugin {
             return true;
         }
 
+        if (action.equals("onInteractionTriggerClick")) {
+            webView.sendJavascript("androidCallFunction()");
+            return true;
+        }
+
+
+
         if (action.equals("getData")) {
             JSONObject r = new JSONObject();
             r.put("uuid", "uuuuuuuid");
